@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "N": {
+      "item": "minecraft:iron_ingot"
+    },
+    "O": {
+      "item": "minecraft:diamond"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " NO",
+    " SN",
+    "S  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "soulscythe:soul_scythe"
+  }
+}

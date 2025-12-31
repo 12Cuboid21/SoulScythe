@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_player_soul": {
+      "conditions": {
+        "items": [
+          {
+            "items": "soulscythe:player_soul"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "soulscythe:soul_scythe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_player_soul"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "soulscythe:soul_scythe"
+    ]
+  }
+}
