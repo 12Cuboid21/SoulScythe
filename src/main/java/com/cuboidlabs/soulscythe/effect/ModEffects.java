@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 public class ModEffects {
     public static final RegistryEntry<StatusEffect> CHAINED_EFFECT = registerStatusEffect("chained_effect", new ChainedEffect()/*.addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED, Identifier.of(SoulScythe.MOD_ID,"chained_effect"),0f,EntityAttributeModifier.Operation.ADD_VALUE).addAttributeModifier(EntityAttributes.GENERIC_GRAVITY, Identifier.of(SoulScythe.MOD_ID,"chained_effect"),0f,EntityAttributeModifier.Operation.ADD_VALUE).addAttributeModifier(EntityAttributes.GENERIC_FALL_DAMAGE_MULTIPLIER, Identifier.of(SoulScythe.MOD_ID,"chained_effect"), 0f,EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)*/);
     public static final RegistryEntry<StatusEffect> GHOST_EFFECT = registerStatusEffect("ghost_effect", new GhostEffect(StatusEffectCategory.HARMFUL,0x545454));
+    public static final RegistryEntry<StatusEffect> REMERGING_EFFECT = registerStatusEffect("remerging_effect", new RemergingEffect(StatusEffectCategory.NEUTRAL, 0x545454).addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED, Identifier.of(SoulScythe.MOD_ID,"remerging_effect"),-0.30f, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL).addAttributeModifier(EntityAttributes.GENERIC_MAX_HEALTH, Identifier.of(SoulScythe.MOD_ID,"remerging_effect"),-0.5f, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
     public static void registerEffects() {
         SoulScythe.LOGGER.info("Registering mod items for: " + SoulScythe.MOD_ID);

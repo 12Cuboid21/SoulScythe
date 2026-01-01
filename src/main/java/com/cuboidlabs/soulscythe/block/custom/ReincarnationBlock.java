@@ -2,6 +2,7 @@ package com.cuboidlabs.soulscythe.block.custom;
 
 import com.cuboidlabs.soulscythe.block.ModBlocks;
 import com.cuboidlabs.soulscythe.component.ModDataComponentTypes;
+import com.cuboidlabs.soulscythe.effect.ModEffects;
 import com.cuboidlabs.soulscythe.item.custom.PlayerSoulItem;
 import com.cuboidlabs.soulscythe.util.GhostEffectHandler;
 import com.mojang.authlib.GameProfile;
@@ -10,6 +11,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
@@ -59,6 +61,7 @@ public class ReincarnationBlock extends Block {
         bolt.setCosmetic(true);
         world.spawnEntity(bolt);
         Objects.requireNonNull(world.getPlayerByUuid(userUuid)).setPos(pos.getX(),pos.getY(),pos.getZ());
+        world.getPlayerByUuid(userUuid).addStatusEffect(new StatusEffectInstance(ModEffects.REMERGING_EFFECT, 72000, 0, true, false, false));
         return ActionResult.success(true);
     }
 }

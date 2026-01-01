@@ -4,5 +4,6 @@
   "effect.soulscythe.chained_effect": "Chained",
   "block.soulscythe.reincarnation_block": "Reincarnation Block",
   "item.soulscythe.reincarnation_block": "Reincarnation Block",
-  "effect.soulscythe.ghost_effect": "Ghosted"
+  "effect.soulscythe.ghost_effect": "Ghosted",
+  "effect.soulscythe.remerging_effect": "Remerging"
 }

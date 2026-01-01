@@ -3,7 +3,10 @@ package com.cuboidlabs.soulscythe.mixin;
 import com.cuboidlabs.soulscythe.effect.ModEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.item.MilkBucketItem;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.network.ServerPlayerInteractionManager;
 import net.minecraft.util.ActionResult;
@@ -33,6 +36,10 @@ public class GhostEffectMixin {
     private void blockEntityInteract(ServerPlayerEntity player, World world, ItemStack stack, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         if (player.hasStatusEffect(ModEffects.GHOST_EFFECT)) {
             cir.setReturnValue(ActionResult.FAIL);
+        } else if (player.hasStatusEffect(ModEffects.REMERGING_EFFECT)) {
+            if (stack.getItem() instanceof MilkBucketItem) {
+                cir.setReturnValue(ActionResult.FAIL);
+            }
         }
     }
 
