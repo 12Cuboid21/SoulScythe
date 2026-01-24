@@ -15,12 +15,17 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.REINCARNATION_BLOCK);
+        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.REINCARNATION_BLOCK);
+        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SOUL_VAULT);
+        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SOUL_SPAWNER);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         //itemModelGenerator.register(ModItems.SOUL_SCYTHE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PLAYER_SOUL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SHADER_DEBUG_ITEM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.LIFE_GEM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SOUL_SHARD, Models.GENERATED);
     }
 }

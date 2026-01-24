@@ -1,0 +1,125 @@
+{
+  "blend": {
+    "func": "add",
+    "srcrgb": "srcalpha",
+    "dstrgb": "1-srcalpha"
+  },
+  "vertex": "soulscythe:soul_storm_shader",
+  "fragment": "soulscythe:soul_storm_shader",
+  "attributes": ["Position"],
+  "samplers": [{
+    "name": "DiffuseSampler"
+  },
+    {
+      "name": "DepthSampler"
+    }],
+  "uniforms": [{
+    "name": "ProjMat",
+    "type": "matrix4x4",
+    "count": 16,
+    "values": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+  },
+    {
+      "name": "OutSize",
+      "type": "float",
+      "count": 2,
+      "values": [1.0, 1.0]
+    },
+    {
+      "name": "ColorModulate",
+      "type": "float",
+      "count": 4,
+      "values": [1.0, 1.0, 1.0, 1.0]
+    },
+    {
+      "name": "Multiplier",
+      "type": "int",
+      "count": 1,
+      "values": [ 1 ]
+    },
+    {
+      "name": "maxMagenta",
+      "type": "float",
+      "count": 1,
+      "values": [ 1.0 ]
+    },
+    {
+      "name": "minMagenta",
+      "type": "float",
+      "count": 1,
+      "values": [ 1.0 ]
+    },
+    {
+      "name": "GrayTint",
+      "type": "float",
+      "count": 3,
+      "values": [ 1.0,1.0,1.0 ]
+    },
+    {
+      "name": "InverseProjectionMatrix",
+      "type": "matrix4x4",
+      "count": 16,
+      "values": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+    },
+    {
+      "name": "InverseViewMatrix",
+      "type": "matrix4x4",
+      "count": 16,
+      "values": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+    },
+    {
+      "name": "CircleCenter",
+      "type": "float",
+      "count": 3,
+      "values": [ 1.0,1.0,1.0 ]
+    },
+    {
+      "name": "CircleColor",
+      "type": "float",
+      "count": 3,
+      "values": [ 1.0,1.0,1.0 ]
+    },
+    {
+      "name": "NearRadius",
+      "type": "float",
+      "count": 1,
+      "values": [ 1.0 ]
+    },
+    {
+      "name": "FarRadius",
+      "type": "float",
+      "count": 1,
+      "values": [ 1.0 ]
+    },
+    {
+      "name": "PlayerPos",
+      "type": "float",
+      "count": 3,
+      "values": [ 1.0,1.0,1.0 ]
+    },
+    {
+      "name": "MagentaColor",
+      "type": "float",
+      "count": 3,
+      "values": [ 1.0,1.0,1.0 ]
+    },
+    {
+      "name": "OuterColor",
+      "type": "float",
+      "count": 3,
+      "values": [ 1.0,1.0,1.0 ]
+    },
+    {
+      "name": "OutlineThickness",
+      "type": "float",
+      "count": 1,
+      "values": [ 1.0 ]
+    },
+    {
+      "name": "OutlineStrength",
+      "type": "float",
+      "count": 1,
+      "values": [ 1.0 ]
+    }
+  ]
+}

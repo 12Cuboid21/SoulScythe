@@ -2,12 +2,16 @@ package com.cuboidlabs.soulscythe.util;
 
 import com.cuboidlabs.soulscythe.SoulScythe;
 import com.cuboidlabs.soulscythe.effect.ModEffects;
+import net.minecraft.client.particle.FireworksSparkParticle;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particle.DustParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
+import org.joml.Vector3f;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,6 +26,8 @@ public class ChainedEffectHandler {
             PlayerEntity player = world.getPlayerByUuid(uuid);
             if (player == null) continue;
 
+            spawnFlashCircle(world, player);
+
             if (!player.hasStatusEffect(ModEffects.CHAINED_EFFECT)) {
                 player.addStatusEffect(
                         new StatusEffectInstance(ModEffects.CHAINED_EFFECT,
@@ -32,6 +38,34 @@ public class ChainedEffectHandler {
                                 false)
                 );
             }
+        }
+    }
+
+    public static void spawnFlashCircle(ServerWorld world, PlayerEntity player) {
+        double radius = 1;
+        int points = 32;
+
+        double cx = player.getX();
+        double cy = player.getY() + 1.0;
+        double cz = player.getZ();
+
+        for (int i = 0; i < points; i++) {
+            double angle = (2 * Math.PI / points) * i;
+
+            double x = cx + Math.cos(angle) * radius;
+            double z = cz + Math.sin(angle) * radius;
+
+            // Yellow dust accent
+            world.spawnParticles(
+                    new DustParticleEffect(
+                            new Vector3f(1.0f, 1.0f, 0.2f), // yellow
+                            1.5f
+                    ),
+                    x, cy, z,
+                    2,
+                    0, 0, 0,
+                    0
+            );
         }
     }
 

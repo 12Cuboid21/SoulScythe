@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "soulscythe:soul_trials",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 64,
+    "separation": 48,
+    "salt": 75413
+  }
+}

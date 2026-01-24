@@ -5,5 +5,10 @@
   "block.soulscythe.reincarnation_block": "Reincarnation Block",
   "item.soulscythe.reincarnation_block": "Reincarnation Block",
   "effect.soulscythe.ghost_effect": "Ghosted",
-  "effect.soulscythe.remerging_effect": "Remerging"
+  "effect.soulscythe.remerging_effect": "Remerging",
+  "item.soulscythe.shader_debug_item": "Shader Debugger",
+  "item.soulscythe.life_gem": "Life Gem",
+  "item.soulscythe.soul_shard": "Soul Shard",
+  "block.soulscythe.soul_spawner": "Soul Spawner",
+  "block.soulscythe.soul_vault": "Soul Vault"
 }

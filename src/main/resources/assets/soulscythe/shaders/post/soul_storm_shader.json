@@ -1,0 +1,17 @@
+{
+  "targets": [
+    "swap"
+  ],
+  "passes": [
+    {
+      "name": "soulscythe:soul_storm_shader",
+      "intarget": "minecraft:main",
+      "outtarget": "swap"
+    },
+    {
+      "name": "soulscythe:soul_storm_shader",
+      "intarget": "swap",
+      "outtarget": "minecraft:main"
+    }
+  ]
+}

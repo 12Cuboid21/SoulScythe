@@ -1,0 +1,12 @@
+{
+	"parent": "minecraft:block/cube",
+	"textures": {
+		"north": "soulscythe:block/reincarnation_block_side",
+		"south": "soulscythe:block/reincarnation_block_side",
+		"east": "soulscythe:block/reincarnation_block_side",
+		"west": "soulscythe:block/reincarnation_block_side",
+		"up": "soulscythe:block/reincarnation_block_top",
+		"down": "soulscythe:block/reincarnation_block_botom",
+		"particle": "soulscythe:block/reincarnation_block_botom"
+	}
+}

@@ -2,6 +2,8 @@ package com.cuboidlabs.soulscythe.block;
 
 import com.cuboidlabs.soulscythe.SoulScythe;
 import com.cuboidlabs.soulscythe.block.custom.ReincarnationBlock;
+import com.cuboidlabs.soulscythe.block.custom.SoulSpawnerBlock;
+import com.cuboidlabs.soulscythe.block.custom.SoulVaultBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -15,6 +17,8 @@ import net.minecraft.util.Identifier;
 
 public class ModBlocks {
     public static final Block REINCARNATION_BLOCK = registerBlock("reincarnation_block", new ReincarnationBlock(AbstractBlock.Settings.create().strength(9999f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+    public static final Block SOUL_VAULT = registerBlock("soul_vault", new SoulVaultBlock(AbstractBlock.Settings.create().strength(9999f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block SOUL_SPAWNER = registerBlock("soul_spawner", new SoulSpawnerBlock(AbstractBlock.Settings.create().strength(9999f).requiresTool().sounds(BlockSoundGroup.STONE)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

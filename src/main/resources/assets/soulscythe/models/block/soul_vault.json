@@ -1,0 +1,12 @@
+{
+	"parent": "minecraft:block/cube",
+	"textures": {
+		"north": "soulscythe:block/soul_vault_key_side_open",
+		"south": "soulscythe:block/soul_vault_side_open",
+		"east": "soulscythe:block/soul_vault_side_open",
+		"west": "soulscythe:block/soul_vault_side_open",
+		"up": "soulscythe:block/soul_vault_top_open",
+		"down": "soulscythe:block/soul_vault_bottom",
+		"particle": "soulscythe:block/soul_vault_bottom"
+	}
+}

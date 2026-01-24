@@ -47,13 +47,28 @@ public class ScytheDamageCancelMixin {
 
         ItemStack weapon = attacker.getMainHandStack();
 
-        if (!(weapon.getItem() instanceof SoulScytheItem)) return;
+        if (!(weapon.getItem() instanceof SoulScytheItem)) {
+            if (target instanceof ServerPlayerEntity playerUp) {
+                if (ChainedEffectHandler.isPlayerIncluded(playerUp)) {
+                    playerUp.setHealth(1F);
+                    cir.setReturnValue(false);
+                }
+            }
+            return;
+        }
 
         if(target.getHealth() < 1F) {
             if (target instanceof ServerPlayerEntity player) {
-                if (ChainedEffectHandler.isPlayerIncluded(player)) {/*cir.setReturnValue(false);*/ banPlayer(player, attacker); return;}
+                if (ChainedEffectHandler.isPlayerIncluded(player)) {
+                    player.setHealth(10F);
+                    cir.setReturnValue(false);
+                    banPlayer(player, attacker);
+                    return;
+                }
                 target.getWorld().sendEntityStatus(target, (byte) 35);
-                attacker.sendMessage(Text.literal(("The player " + target.getName().getString() + " is ready for the final judgement.")));
+                attacker.sendMessage(Text.empty().append("The player ").formatted(Formatting.GOLD)
+                        .append(target.getName().getString()).formatted(Formatting.GOLD,Formatting.BOLD)
+                        .append(" is ready for the final judgement.").formatted(Formatting.GOLD));
                 player.setHealth(1F);
                 ChainedEffectHandler.addPlayer(player);
                 cir.setReturnValue(false);
@@ -82,13 +97,19 @@ public class ScytheDamageCancelMixin {
         dropEntity.setNeverDespawn();
         serverWorld.spawnEntity(dropEntity);
 
-        attacker.sendMessage(
-                Text.empty()
-                        .append(Text.literal("Final Judgement").formatted(Formatting.GOLD, Formatting.BOLD))
-                        .append(Text.literal(" has been passed. ").formatted(Formatting.GRAY))
-                        .append(Text.literal("✦").formatted(Formatting.DARK_RED)),
-                false
-        );
+        serverPlayer.getInventory().dropAll();
+
+        for (ServerPlayerEntity sendPlayer: serverWorld.getPlayers()) {
+            sendPlayer.sendMessage(
+                    Text.empty()
+                            .append(Text.literal("Final Judgement").formatted(Formatting.GOLD, Formatting.BOLD))
+                            .append(Text.literal(" has been passed for ").formatted(Formatting.GRAY))
+                            .append(Text.literal(serverPlayer.getName().getString()).formatted(Formatting.DARK_RED,Formatting.BOLD))
+                            .append(Text.literal(". ").formatted(Formatting.GRAY))
+                            .append(Text.literal("✦").formatted(Formatting.DARK_RED)),
+                    false
+            );
+        }
 
         LightningEntity bolt = new LightningEntity(EntityType.LIGHTNING_BOLT,serverWorld);
         bolt.setPos(serverPlayer.getX(),serverPlayer.getY(),serverPlayer.getZ());

@@ -25,14 +25,5 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                                                        ModItems.LIGHT_RAY, *amount of items in result*)
                                                                               \/
         */
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SOUL_SCYTHE)
-                .pattern(" NO")
-                .pattern(" SN")
-                .pattern("S  ")
-                .input('S', Items.STICK)
-                .input('O', Items.DIAMOND)
-                .input('N', Items.IRON_INGOT)
-                .criterion(hasItem(ModItems.PLAYER_SOUL), conditionsFromItem(ModItems.PLAYER_SOUL))
-                .offerTo(recipeExporter);
     }
 }

@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "soulscythe",
 	"version": "${version}",
-	"name": "SoulScythe",
+	"name": "SoulSplit",
 	"description": "This mod adds the Soul Scythe using which you can split a dead players soul and body.",
 	"authors": [
 		"CuboidLabs"
