@@ -10,6 +10,9 @@ import net.minecraft.util.Identifier;
 public class ModTags {
     public static class Blocks {
         public static final TagKey<Block> INCORRECT_FOR_SOUL_TOOL = createTag("incorrect_for_soul_tool");
+        public static final TagKey<Block> INCORRECT_FOR_PRISMARITE_TOOL = createTag("incorrect_for_prismarite_tool");
+        public static final TagKey<Block> INCORRECT_FOR_WEAK_PRISMARITE_TOOL = createTag("incorrect_for_weak_prismarite_tool");
+        public static final TagKey<Block> INCORRECT_FOR_INDESTRUCTIBLE_TOOL = createTag("incorrect_for_indestructible_tool");
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(SoulScythe.MOD_ID, name));
         }

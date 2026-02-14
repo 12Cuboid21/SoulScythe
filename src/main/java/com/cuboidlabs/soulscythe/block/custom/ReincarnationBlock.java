@@ -8,6 +8,7 @@ import com.cuboidlabs.soulscythe.item.ModItems;
 import com.cuboidlabs.soulscythe.item.custom.LifeGemItem;
 import com.cuboidlabs.soulscythe.item.custom.PlayerSoulItem;
 import com.cuboidlabs.soulscythe.util.GhostEffectHandler;
+import com.cuboidlabs.soulscythe.util.PersistentModData;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -51,6 +52,7 @@ public class ReincarnationBlock extends Block {
         super(settings);
     }
     private Set<BlockPos> bookAquired = new HashSet<>();
+    private boolean scytheAlrCreated = false;
 
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
@@ -58,12 +60,20 @@ public class ReincarnationBlock extends Block {
         System.out.println("past 1");
         ItemStack stack = player.getMainHandStack();
         if (stack.getItem() instanceof LifeGemItem) {
+            if (!(world instanceof ServerWorld serverWorld)) return ActionResult.FAIL;
+            PersistentModData modDataState = PersistentModData.get(serverWorld);
+            if (modDataState.scytheCrafted) {
+                player.sendMessage(Text.literal("The scythe has already been crafted."));
+                return ActionResult.success(true);
+            }
             stack.decrement(1);
             player.getInventory().insertStack(new ItemStack(ModItems.SOUL_SCYTHE));
             LightningEntity bolt = new LightningEntity(EntityType.LIGHTNING_BOLT,world);
             bolt.setPos(pos.getX(),pos.getY(),pos.getZ());
             bolt.setCosmetic(true);
             world.spawnEntity(bolt);
+            modDataState.scytheCrafted = true;
+            modDataState.markDirty();
             return ActionResult.success(true);
         } else if (player.getMainHandStack().isEmpty() && !bookAquired.contains(pos)) {
             List<RawFilteredPair<Text>> pages = List.of(

@@ -4,12 +4,10 @@ import com.cuboidlabs.soulscythe.blockentity.ModBlockEntities;
 import com.cuboidlabs.soulscythe.item.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.mob.*;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtHelper;
@@ -77,6 +75,15 @@ public class SoulSpawnerBlockEntity extends BlockEntity {
                     world.random.nextFloat() * 360f,
                     0
             );
+
+            entity.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.DIAMOND_SWORD));
+
+            if (!(entity instanceof VexEntity) && !(entity instanceof CaveSpiderEntity) && !(entity instanceof VindicatorEntity)) {
+                entity.equipStack(EquipmentSlot.HEAD, new ItemStack(Items.DIAMOND_HELMET));
+                entity.equipStack(EquipmentSlot.CHEST, new ItemStack(Items.DIAMOND_CHESTPLATE));
+                entity.equipStack(EquipmentSlot.LEGS, new ItemStack(Items.DIAMOND_LEGGINGS));
+                entity.equipStack(EquipmentSlot.FEET, new ItemStack(Items.DIAMOND_BOOTS));
+            }
 
             world.spawnEntity(entity);
             enemies.add(entity.getUuid());

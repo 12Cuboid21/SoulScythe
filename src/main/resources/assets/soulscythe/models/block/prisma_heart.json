@@ -1,0 +1,12 @@
+{
+	"parent": "minecraft:block/cube",
+	"textures": {
+		"north": "soulscythe:block/prisma_heart",
+		"south": "soulscythe:block/prisma_heart",
+		"east": "soulscythe:block/prisma_heart",
+		"west": "soulscythe:block/prisma_heart",
+		"up": "soulscythe:block/prisma_heart",
+		"down": "soulscythe:block/prisma_heart",
+		"particle": "soulscythe:block/prisma_heart"
+	}
+}

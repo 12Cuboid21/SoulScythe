@@ -26,6 +26,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PLAYER_SOUL, Models.GENERATED);
         itemModelGenerator.register(ModItems.SHADER_DEBUG_ITEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.LIFE_GEM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PRISMARITE_SHARD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PRISMA_DAGGER, Models.GENERATED);
         itemModelGenerator.register(ModItems.SOUL_SHARD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HAMMER_BLUEPRINT, Models.GENERATED);
     }
 }

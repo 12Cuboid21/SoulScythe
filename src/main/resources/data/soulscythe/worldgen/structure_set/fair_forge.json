@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "soulscythe:fallen_ruins",
+      "structure": "soulscythe:fair_forge",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
-    "spacing": 120,
-    "separation": 80,
-    "salt": 52208137
+    "spacing": 140,
+    "separation": 100,
+    "salt": 34062915
   }
 }

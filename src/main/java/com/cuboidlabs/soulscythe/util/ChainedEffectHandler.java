@@ -10,6 +10,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import org.joml.Vector3f;
 
@@ -26,7 +27,7 @@ public class ChainedEffectHandler {
             PlayerEntity player = world.getPlayerByUuid(uuid);
             if (player == null) continue;
 
-            spawnFlashCircle(world, player);
+            //spawnFlashCircle(world, player);
 
             if (!player.hasStatusEffect(ModEffects.CHAINED_EFFECT)) {
                 player.addStatusEffect(
@@ -37,6 +38,11 @@ public class ChainedEffectHandler {
                                 false,
                                 false)
                 );
+            }
+        }
+        for (ServerPlayerEntity serverPlayerWithEffect : world.getPlayers()) {
+            if (serverPlayerWithEffect.hasStatusEffect(ModEffects.CHAINED_EFFECT)) {
+                spawnFlashCircle(world, serverPlayerWithEffect);
             }
         }
     }

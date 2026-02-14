@@ -1,0 +1,12 @@
+{
+	"parent": "minecraft:block/cube",
+	"textures": {
+		"north": "soulscythe:block/light_forge_side",
+		"south": "soulscythe:block/light_forge_side",
+		"east": "soulscythe:block/light_forge_side",
+		"west": "soulscythe:block/light_forge_side",
+		"up": "soulscythe:block/light_forge_top",
+		"down": "soulscythe:block/light_forge_bottom",
+		"particle": "soulscythe:block/light_forge_top"
+	}
+}

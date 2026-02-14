@@ -20,7 +20,10 @@ public enum ModToolMaterials implements ToolMaterial {
     IRON(BlockTags.INCORRECT_FOR_IRON_TOOL, 250, 6.0F, 2.0F, 14, () -> Ingredient.ofItems(new ItemConvertible[]{Items.IRON_INGOT})),
     DIAMOND(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 1561, 8.0F, 3.0F, 10, () -> Ingredient.ofItems(new ItemConvertible[]{Items.DIAMOND})),
     GOLD(BlockTags.INCORRECT_FOR_GOLD_TOOL, 32, 12.0F, 0.0F, 22, () -> Ingredient.ofItems(new ItemConvertible[]{Items.GOLD_INGOT})),*/
-    SOUL(ModTags.Blocks.INCORRECT_FOR_SOUL_TOOL, 10000, 9.0F, 10.0F, 0, () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.PLAYER_SOUL}));
+    SOUL(ModTags.Blocks.INCORRECT_FOR_SOUL_TOOL, Integer.MAX_VALUE, 9.0F, 10.0F, 0, () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.PLAYER_SOUL})),
+    PRISMARITE(ModTags.Blocks.INCORRECT_FOR_PRISMARITE_TOOL, Integer.MAX_VALUE, 9.0F, 10.0F, 0, () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.PRISMARITE_SHARD})),
+    WEAKPRISMARITE(ModTags.Blocks.INCORRECT_FOR_WEAK_PRISMARITE_TOOL, 3, 9.0F, 10.0F, 0, () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.PRISMARITE_SHARD})),
+    INDESTRUCTIBLE(ModTags.Blocks.INCORRECT_FOR_INDESTRUCTIBLE_TOOL, Integer.MAX_VALUE, 9.0F, 10.0F, 0, () -> Ingredient.ofItems(new ItemConvertible[]{Items.BEDROCK}));
 
     private final TagKey<Block> inverseTag;
     private final int itemDurability;

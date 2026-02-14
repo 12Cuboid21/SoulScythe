@@ -25,5 +25,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                                                        ModItems.LIGHT_RAY, *amount of items in result*)
                                                                               \/
         */
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.HAMMER_BLUEPRINT)
+                .pattern("ini")
+                .pattern("psp")
+                .pattern("psp")
+                .input('i', Items.IRON_BLOCK).input('n', Items.NETHERITE_INGOT).input('p', Items.PAPER).input('s', Items.STICK)
+                .criterion(FabricRecipeProvider.hasItem(Items.NETHERITE_INGOT), FabricRecipeProvider.conditionsFromItem(Items.NETHERITE_INGOT))
+                .offerTo(recipeExporter);
     }
 }
