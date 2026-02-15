@@ -98,6 +98,9 @@ public class ReincarnationBlock extends Block {
                     RawFilteredPair.of(Text.literal(
                             "Some people say it was destroyed and some it is still out there,\n" +
                                     "but no one actually knows."
+                    )),
+                    RawFilteredPair.of(Text.literal(
+                            "The #### ### was appareantely obtained in the ouSl risTal.\n"
                     ))
             );
             WrittenBookContentComponent bookContent =

@@ -43,11 +43,11 @@ public class LightForgeBlock extends Block {
         if (world instanceof ServerWorld serverWorld) {
             ItemStack handStack = player.getMainHandStack();
             PersistentModData modDataState = PersistentModData.get(serverWorld);
-            if (!modDataState.scytheCrafted) {
-                player.sendMessage(Text.of("There is nothing to defend against YET."));
-                return ActionResult.success(true);
-            }
             if (handStack.getItem() instanceof LifeGemItem) {
+                if (!modDataState.scytheCrafted) {
+                    player.sendMessage(Text.of("There is nothing to defend against YET."));
+                    return ActionResult.success(true);
+                }
                 if (modDataState.greatswordCrafted) {
                     player.sendMessage(Text.of("The Greatsword has already been crafted."));
                     return ActionResult.success(true);
@@ -62,6 +62,38 @@ public class LightForgeBlock extends Block {
                 modDataState.greatswordCrafted = true;
                 modDataState.markDirty();
                 return ActionResult.success(true);
+            } else if (player.getMainHandStack().isEmpty() && !bookAquired.contains(pos)) {
+                List<RawFilteredPair<Text>> pages = List.of(
+                        RawFilteredPair.of(Text.literal(
+                                "There once was weapon, it was very powerful.\n\n" +
+                                        "The holder was able to call the Zeus's Lighting."
+                        )),
+                        RawFilteredPair.of(Text.literal(
+                                "He had to get a gem, from a very hard dungeon,\n" +
+                                        "but that didn't scare him."
+                        )),
+                        RawFilteredPair.of(Text.literal(
+                                "ouSl railTs"
+                        ))
+                );
+                WrittenBookContentComponent bookContent =
+                        new WrittenBookContentComponent(
+                                RawFilteredPair.of("The Legend Of The Greatsword"), // title
+                                "???",            // author
+                                0,                                         // generation
+                                pages,
+                                false                                      // resolved
+                        );
+
+                ItemStack book = new ItemStack(Items.WRITTEN_BOOK);
+                book.set(
+                        DataComponentTypes.WRITTEN_BOOK_CONTENT,
+                        bookContent
+                );
+                player.getInventory().insertStack(book);
+                player.sendMessage(Text.of("You found a seemingly old book"), true);
+                bookAquired.add(pos);
+                return ActionResult.SUCCESS;
             } else {
                 player.sendMessage(Text.of("You are missing the gem in the heart."));
                 return ActionResult.success(true);
