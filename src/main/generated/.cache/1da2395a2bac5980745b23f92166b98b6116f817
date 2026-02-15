@@ -1,8 +1,8 @@
-// 1.21.1	2026-02-14T22:59:03.422891	SoulSplit/Model Definitions
+// 1.21.1	2026-02-15T12:05:26.0850631	SoulSplit/Model Definitions
 1cdb6b366e079fdd93c86d926b2f024053049ba5 assets\soulscythe\models\item\hammer_blueprint.json
 2a58776f0d2daa55152b69410e3313477a48ca2d assets\soulscythe\models\item\soul_shard.json
+41cc5134f993f0a432b48a433df48a3393d78fc2 assets\soulscythe\models\item\life_gem.json
 f235d57d10b149e86815f4a222c0b22f4df6bafe assets\soulscythe\models\item\shader_debug_item.json
 b3077fd464631c989cf9e1899857ce48a9c70588 assets\soulscythe\models\item\prisma_dagger.json
-41cc5134f993f0a432b48a433df48a3393d78fc2 assets\soulscythe\models\item\life_gem.json
 971a71ea93775bd0a77d4294045ef00bdadd3fb5 assets\soulscythe\models\item\player_soul.json
 c9e97dfc385242da77e9da8c14b1cf1de5b1297d assets\soulscythe\models\item\prismarite_shard.json

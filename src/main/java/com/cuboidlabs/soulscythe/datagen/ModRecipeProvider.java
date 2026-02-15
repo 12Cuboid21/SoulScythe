@@ -32,5 +32,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('i', Items.IRON_BLOCK).input('n', Items.NETHERITE_INGOT).input('p', Items.PAPER).input('s', Items.STICK)
                 .criterion(FabricRecipeProvider.hasItem(Items.NETHERITE_INGOT), FabricRecipeProvider.conditionsFromItem(Items.NETHERITE_INGOT))
                 .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.PRISMARITE_SHARD)
+                .pattern("ada")
+                .pattern("dgd")
+                .pattern("ada")
+                .input('a', Items.AMETHYST_SHARD).input('d', Items.DIAMOND).input('g', Items.GLASS)
+                .criterion(FabricRecipeProvider.hasItem(Items.AMETHYST_SHARD), FabricRecipeProvider.conditionsFromItem(Items.AMETHYST_SHARD))
+                .offerTo(recipeExporter);
     }
 }

@@ -22,7 +22,7 @@ public class ModItems {
     public static final Item PLAYER_SOUL = registerItem("player_soul",new PlayerSoulItem(new Item.Settings().maxCount(1)));
     public static final Item SHADER_DEBUG_ITEM = registerItem("shader_debug_item", new ShaderDebugItem(new Item.Settings().maxCount(1)));
     public static final Item LIFE_GEM = registerItem("life_gem", new LifeGemItem(new Item.Settings().maxCount(1)));
-    public static final Item PRISMARITE_SHARD = registerItem("prismarite_shard", new PrismariteShardItem(new Item.Settings().maxCount(3)));
+    public static final Item PRISMARITE_SHARD = registerItem("prismarite_shard", new PrismariteShardItem(new Item.Settings().maxCount(16)));
     public static final Item SOUL_SHARD = registerItem("soul_shard", new SoulShardItem(new Item.Settings().maxCount(3)));
     public static final Item HAMMER_BLUEPRINT = registerItem("hammer_blueprint", new Item(new Item.Settings().maxCount(1)));
 

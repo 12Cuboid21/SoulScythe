@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "soulscythe:prismarite_tree",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 140,
+    "separation": 100,
+    "salt": 58149799
+  }
+}

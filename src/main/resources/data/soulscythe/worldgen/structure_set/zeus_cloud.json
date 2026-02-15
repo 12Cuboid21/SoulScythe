@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "soulscythe:zeus_cloud",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 140,
+    "separation": 100,
+    "salt": 10576653
+  }
+}
