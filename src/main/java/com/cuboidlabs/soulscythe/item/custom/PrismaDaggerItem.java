@@ -31,13 +31,19 @@ public class PrismaDaggerItem extends SwordItem {
     public PrismaDaggerItem(ToolMaterial toolMaterial, Settings settings) {
         super(toolMaterial, settings);
     }
+    private static int soulSlot = -1;
+
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (target instanceof ServerPlayerEntity serverPlayerTarget) {
-            if (serverPlayerTarget.getInventory().contains(new ItemStack(ModItems.PLAYER_SOUL))) {
-                int playerSoulSlot = serverPlayerTarget.getInventory().getSlotWithStack(new ItemStack(ModItems.PLAYER_SOUL));
-                ItemStack playerSoulStack = serverPlayerTarget.getInventory().getStack(playerSoulSlot);
+            for (int i = 0; i < serverPlayerTarget.getInventory().size(); i++) {
+                if (!serverPlayerTarget.getInventory().getStack(i).isEmpty() && serverPlayerTarget.getInventory().getStack(i).getItem() instanceof PlayerSoulItem) {
+                    soulSlot = i;
+                }
+            }
+            if (soulSlot != -1) {
+                ItemStack playerSoulStack = serverPlayerTarget.getInventory().getStack(soulSlot);
                 if (attacker instanceof ServerPlayerEntity serverAttacker) {
                     serverAttacker.getInventory().insertStack(playerSoulStack);
                     serverPlayerTarget.addStatusEffect(
@@ -60,6 +66,7 @@ public class PrismaDaggerItem extends SwordItem {
                 }
             }
         }
+        soulSlot = -1;
         return super.postHit(stack, target, attacker);
     }
 }
